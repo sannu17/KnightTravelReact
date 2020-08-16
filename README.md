@@ -1,3 +1,15 @@
+## SpaceXLaunch Program
+
+1. SpaceXLaunch component renders the filter view with child component LaunchProgramDetail rendering satellite details.
+2. On initial render API to fetch full details is called.
+3. Filter can be applied on Launch year, success launch and success land, all these filters can be applied together as well1.
+4. On filter url will also change and page is not getting refreshed on applying filter.
+5. Clear filter is extra add on once you apply all the filter and you want to clear them all then click 'Clear Filter' botton.
+6. I have used 'N/A' in case data is not coming from API
+
+NOTE - The key 'launch_landing' given for Successful Landing mismatch with query param 'land_success' please verify. Also we are not able to get any data based on 'launch_landing'
+#######################################################################################
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -42,4 +54,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
 # KnightTravelReact
+# SpaceXLaunchProgram
