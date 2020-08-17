@@ -71,6 +71,8 @@ function SpaceXLaunch(props: any) {
   const successfulLaunch = React.useRef();
   const launchYearVal = React.useRef();
   const selectedButton = React.useRef(null);
+  const selectedButtonLaunch = React.useRef(null);
+  const selectedButtonLand = React.useRef(null);
   const basePath = React.useRef("/filter/");
   const { launchYear, spaceLaunchData } = state;
   const getLaunchYear = (data: any) => {
@@ -122,7 +124,8 @@ function SpaceXLaunch(props: any) {
   React.useEffect(() => {
     getAllSpaceLaunchData();
   }, []);
-  const onSuccessfulLaunchClick = (e: any) => {
+  const onSuccessfulLaunchClick = (e: any, selected: any) => {
+    selectedButtonLaunch.current = selected;
     const clickedButton = e.currentTarget.id;
     successfulLaunch.current = clickedButton;
     props.history.push(
@@ -130,7 +133,8 @@ function SpaceXLaunch(props: any) {
     );
     getSpaceLaunchData();
   };
-  const onSuccessfulLandingClick = (e: any) => {
+  const onSuccessfulLandingClick = (e: any, selected: any) => {
+    selectedButtonLand.current = selected;
     const clickedButton = e.currentTarget.id;
     successfulLand.current = clickedButton;
     props.history.push(
@@ -184,7 +188,11 @@ function SpaceXLaunch(props: any) {
           id="true"
           variant="contained"
           color="primary"
-          onClick={onSuccessfulLaunchClick}
+          onClick={(e) => onSuccessfulLaunchClick(e, true)}
+          style={{
+            backgroundColor:
+              true === selectedButtonLaunch.current ? lime[700] : lime[500],
+          }}
         >
           True
         </LaunchYearButton>
@@ -194,7 +202,11 @@ function SpaceXLaunch(props: any) {
           id="false"
           variant="contained"
           color="primary"
-          onClick={onSuccessfulLaunchClick}
+          onClick={(e) => onSuccessfulLaunchClick(e, false)}
+          style={{
+            backgroundColor:
+              false === selectedButtonLaunch.current ? lime[700] : lime[500],
+          }}
         >
           False
         </LaunchYearButton>
@@ -208,7 +220,11 @@ function SpaceXLaunch(props: any) {
           id="true"
           variant="contained"
           color="primary"
-          onClick={onSuccessfulLandingClick}
+          onClick={(e) => onSuccessfulLandingClick(e, true)}
+          style={{
+            backgroundColor:
+              true === selectedButtonLand.current ? lime[700] : lime[500],
+          }}
         >
           True
         </LaunchYearButton>
@@ -218,7 +234,11 @@ function SpaceXLaunch(props: any) {
           id="false"
           variant="contained"
           color="primary"
-          onClick={onSuccessfulLandingClick}
+          onClick={(e) => onSuccessfulLandingClick(e, false)}
+          style={{
+            backgroundColor:
+              false === selectedButtonLand.current ? lime[700] : lime[500],
+          }}
         >
           False
         </LaunchYearButton>
@@ -229,6 +249,9 @@ function SpaceXLaunch(props: any) {
     successfulLaunch.current = undefined;
     successfulLand.current = undefined;
     launchYearVal.current = undefined;
+    selectedButton.current = null;
+    selectedButtonLaunch.current = null;
+    selectedButtonLand.current = null;
     props.history.push(`/`);
     getSpaceLaunchData();
   };

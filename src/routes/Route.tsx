@@ -8,13 +8,9 @@ import SpaceXLaunch from "../components/spaceXLaunch/SpaceXLaunch";
 function PrivateRoute() {
   return (
     <Switch>
-      <Route exact path="/" component={KnightTour}></Route>
-      <Route exact path="/spaceXLaunch" component={SpaceXLaunch}></Route>
-      <Route
-        exact
-        path="/spaceXLaunch/filter/:id"
-        component={SpaceXLaunch}
-      ></Route>
+      <Route exact path="/" component={SpaceXLaunch}></Route>
+      <Route exact path="/filter/:id" component={SpaceXLaunch}></Route>
+      <Route exact path="/knightTour" component={KnightTour}></Route>
       <Route exact path="/login" component={EmployeeLogin}></Route>
       <Route exact path="/addEmployee" component={AddEmployee}></Route>
     </Switch>
