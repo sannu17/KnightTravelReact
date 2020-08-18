@@ -51,7 +51,7 @@ function KnightTour() {
   const { arrayFirstValue, arraySecondValue } = state;
   const N = 8;
   const isSafe = (sol: any, row: number, col: number) => {
-    return row >= 0 && col >= 0 && row < N && col < N && sol[row][col] == -1;
+    return row >= 0 && col >= 0 && row < N && col < N && sol[row][col] === -1;
   };
 
   const findTour = () => {
@@ -85,7 +85,7 @@ function KnightTour() {
     x: any,
     y: any
   ) => {
-    if (moves_no == N * N) {
+    if (moves_no === N * N) {
       return true;
     }
     for (let k = 0; k < 8; k++) {

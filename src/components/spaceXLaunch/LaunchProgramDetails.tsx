@@ -42,6 +42,7 @@ function LaunchProgramDetails({ spaceLaunchData }: ISpaceLaunchData) {
                 <img
                   src={el.links.mission_patch_small}
                   className={classes.satImage}
+                  alt="Space X Launch"
                 />
               </div>
               <Typography align="left" className={classes.filter}>
